@@ -2,13 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Pixel Art Maker</title>
+  <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="styles">
-    
+  <div class="hidden-input">
+
+    <div class="width-input-part inputs">
+      <input id="input-width" type="range" name="width" max="100" min="5">
+      <br>
+      <label>Width</label>
+    </div>
+
+    <div class="height-input-part inputs">
+      <input id="input-height" type="range" name="width" max="100" min="5">
+      <br>
+      <label>Height</label>
+    </div>
+
+    <input class="submit-button" type="submit" value="Create">
+
   </div>
+  
+  <div class="drop-down">
+    Generate a Table
+  </div>
+
+  <div class="psst">
+    psst!
+  </div>
+
+  <div class="table-area">
+      
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>
