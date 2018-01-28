@@ -7,35 +7,34 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="hidden-input">
+  <div class="outline">
+    <div id="hidden-area" class="hidden-input">
+      <div class="width-input-part inputs">
+        <input id="input-width" type="range" name="width" max="50" min="5" value="20">
+        <br>
+        <label class="labels" for="name">Width: </label>
+        <span class="realtime" id="realtime-width"></span>
+      </div>
 
-    <div class="width-input-part inputs">
-      <input id="input-width" type="range" name="width" max="100" min="5">
-      <br>
-      <label>Width</label>
+      <div class="height-input-part inputs">
+        <input id="input-height" type="range" name="height" max="50" min="5" value="20">
+        <br>
+        <label class="labels" for="height">Height: </label>
+        <span class="realtime" id="realtime-height"></span>
+      </div>
+
+      <input id="submit-button" class="submit-button" type="submit" value="Create">
+
+      <div id="expand" class="psst">
+          psst!
+        </div>
     </div>
-
-    <div class="height-input-part inputs">
-      <input id="input-height" type="range" name="width" max="100" min="5">
-      <br>
-      <label>Height</label>
-    </div>
-
-    <input class="submit-button" type="submit" value="Create">
-
-  </div>
-  
-  <div class="drop-down">
-    Generate a Table
   </div>
 
-  <div class="psst">
-    psst!
-  </div>
 
-  <div class="table-area">
-      
-  </div>
+
+
+  <table id="create-table" class="table-area"></table>
 
   <script src="main.js"></script>
 </body>

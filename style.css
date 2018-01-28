@@ -4,12 +4,23 @@
   font-family: 'Kalam', cursive;
 }
 
+body {
+  background: rgba(49, 88, 166, 0.8)
+}
+
 .hidden-input {
   width: 600px;
   height: 155px;
-  border: 2px solid black;
   margin: 0 auto;
+  border: 2px solid black;
   text-align: center;
+  background-color: #8c77a8;
+  position: relative;
+  bottom: 155px;
+  transition: bottom 0.5s;
+  -webkit-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
+  -moz-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
+  box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
 }
 
 .inputs {
@@ -17,39 +28,66 @@
   padding: 15px;
 }
 
+.labels {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.realtime {
+  font-size: 1.2em;
+}
+
 .submit-button {
   display: block;
   margin: 0 auto;
-}
-
-.drop-down {
-  text-align: center;
-  border: 2px solid black;
-  width: 120px;
-  height: 40px;
-  margin: 0 auto;
+  color: #ccc;
+  background-color: firebrick;
+  border: 2px solid #9e9191;
+  font-size: 1.3em;
+  width: 80px;
   cursor: pointer;
 }
 
+.submit-button:hover {
+  border-style: outset;
+}
+
+.submit-button:active {
+  border-style: inset
+}
+
 .psst {
-  width: 50px;
+  background-color: #ff5544;
+  text-align: center;
+  width: 90px;
   height: 30px;
   margin: 0 auto;
-  text-align: center;
-  border: 2px solid black;
+  border: 2px grey outset;
+  transition: opacity 0.5s;
+   
 }
 
 .table-area {
-  width: 700px;
-  height: 700px;
-  border: 2px solid black;
+  border: 2px ridge black;
   margin: 0 auto;
   margin-top: 10px;
+  /* background-color: #8c77a8; */
+  background-color: rgb(67, 232, 177, 0.5);
+  -moz-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
+  box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
+  /* hidden because shadow leaves an annoying dot in middle of the screen */
+  visibility: hidden;
+}
+
+td {
+  border: 2px solid black;
+  width: 15px;
+  height: 15px;
 }
 
 
 /* RANGE INPUT STYLE BEGIN */
-
+/* Awesome styles @http://danielstern.ca/range.css/#/ */
 
 input[type=range] {
   -webkit-appearance: none;
