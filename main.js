@@ -6,6 +6,7 @@ const $width = document.getElementById('input-width');
 const $height = document.getElementById('input-height');
 const $displayWidth = document.getElementById('realtime-width');
 const $displayHeight = document.getElementById('realtime-height');
+// will be assigned when create button is clicked
 let $tableCells;
 
 // to track if table is cleared or created
@@ -70,7 +71,6 @@ $submit.addEventListener('click', e => {
   }
   // table is ready now event listener can be added
   tableIsReady();
-
 });
 
 /*

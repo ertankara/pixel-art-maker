@@ -55,6 +55,15 @@ body {
   font-size: 1.3em;
   width: 80px;
   cursor: pointer;
+  z-index: 100;
+}
+
+.fa-plus {
+  cursor: pointer;
+}
+
+.fa-minus {
+  cursor: pointer;
 }
 
 .submit-button:hover {
@@ -63,6 +72,12 @@ body {
 
 .submit-button:active {
   border-style: inset
+}
+
+.plus-minus-buttons {
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoRF4FOpE6PbEjpZ6BXtPC1zbB64raTu0_F8QP1uJaDvKPOFkZ) no-repeat;
+
+
 }
 
 .psst {

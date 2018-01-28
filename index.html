@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Pixel Art Maker</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,20 +11,24 @@
   <div class="pick-colors">Placeholder for color pickers</div>
     <div id="hidden-area" class="hidden-input">
       <div class="width-input-part inputs">
+        
         <input id="input-width" type="range" name="width" max="50" min="5" value="20">
         <br>
         <label class="labels" for="name">Width: </label>
         <span class="realtime" id="realtime-width"></span>
       </div>
-
+      <i id="increase-width" class="fa fa-plus" aria-hidden="true"></i>
+      <i id="decrease-width" class="fa fa-minus" aria-hidden="true"></i>
       <div class="height-input-part inputs">
         <input id="input-height" type="range" name="height" max="50" min="5" value="20">
         <br>
         <label class="labels" for="height">Height: </label>
         <span class="realtime" id="realtime-height"></span>
       </div>
-
-      <input id="submit-button" class="submit-button" type="submit" value="Create">
+      
+        <i id="increase-height" class="fa fa-plus" aria-hidden="true"></i>
+        <i id="decrease-height" class="fa fa-minus" aria-hidden="true"></i>
+        <input id="submit-button" class="submit-button" type="submit" value="Create">
 
       <div id="expand" class="psst">
           psst!
