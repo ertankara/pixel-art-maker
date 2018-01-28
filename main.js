@@ -52,9 +52,15 @@ $submit.addEventListener('click', e => {
       row.insertCell(j);
     }
   }
+  // table is ready now event listener can be added
   tableIsReady();
 });
 
+/*
+  if there is no table present then the selector becomes null
+  to prevent it the tableIsReady function will be called inside
+  create button click event
+*/
 const tableIsReady = () => {
   $tableCells = document.querySelectorAll('td');
   for (let i = 0; i < $tableCells.length; i++) {
