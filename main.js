@@ -26,11 +26,13 @@ window.addEventListener('load', () => {
 // show real time change of the width value
 $width.addEventListener('change', e => {
   $displayWidth.innerHTML = e.target.value;
+  generateTable();
 });
 
 // show real time change of the height value
 $height.addEventListener('change', e => {
   $displayHeight.innerHTML = e.target.value;
+  generateTable();
 });
 
 // when hovering on 'psst'
@@ -57,7 +59,7 @@ $submit.addEventListener('click', () => {
     tableCleared = false;
   }
   else {
-    // if table is not cleared away create button calls a clearTable to clear it
+    // if table is not cleared away 'create' button calls a clearTable to clear it
     // changes name of the button to avoid conflict
     $submit.value = 'Create';
     clearTable();
@@ -101,6 +103,7 @@ const clearTable = () => {
 // when plus or minus icons are clicked
 
 const generateTable = () => {
+  $table.style.visibility = 'visible';
   clearTable();
   let row;
   for (let i = 0; i < $height.value; i++) {
@@ -126,7 +129,7 @@ $decreaseWidth.addEventListener('click', () => {
   $width.value = Number($width.value) - 1;
   $displayWidth.innerHTML = $width.value;
 
-  if ($width.value > 5) {
+  if ($width.value >= 5) {
     generateTable();
   }
 });
@@ -145,7 +148,7 @@ $decreaseHeight.addEventListener('click', () => {
   $height.value = Number($height.value) - 1;
   $displayHeight.innerHTML = $height.value;
   
-  if ($height.value > 5) {
+  if ($height.value >= 5) {
     generateTable();
   }
 });
