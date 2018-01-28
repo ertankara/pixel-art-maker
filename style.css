@@ -23,6 +23,15 @@ body {
   box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
 }
 
+.pick-colors {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: auto;
+  right: auto;
+  
+}
+
 .inputs {
   display: inline-block;
   padding: 15px;
@@ -40,7 +49,7 @@ body {
 .submit-button {
   display: block;
   margin: 0 auto;
-  color: #ccc;
+  color: #ddd;
   background-color: firebrick;
   border: 2px solid #9e9191;
   font-size: 1.3em;
@@ -77,12 +86,16 @@ body {
   box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   /* hidden because shadow leaves an annoying dot in middle of the screen */
   visibility: hidden;
+  border-collapse: collapse;
 }
 
 td {
   border: 2px solid black;
   width: 15px;
   height: 15px;
+
+  margin: 0;
+  padding: 0;
 }
 
 

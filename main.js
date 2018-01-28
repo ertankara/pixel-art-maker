@@ -6,11 +6,14 @@ const $width = document.getElementById('input-width');
 const $height = document.getElementById('input-height');
 const $displayWidth = document.getElementById('realtime-width');
 const $displayHeight = document.getElementById('realtime-height');
+let $tableCells;
 
-
+window.addEventListener('load', () => {
+  $displayWidth.innerHTML = $width.value;
+  $displayHeight.innerHTML = $height.value;
+});
 // show real time change of the width value
 $width.addEventListener('change', e => {
-  console.log('trinket');
   $displayWidth.innerHTML = e.target.value;
 });
 
@@ -38,15 +41,25 @@ $hiddenArea.addEventListener('mouseleave', e => {
 $submit.addEventListener('click', e => {
   $table.style.visibility = 'visible';
 
-  /* this is the part that creates table */
+  // the part that creates table
   let width = $width.value;
   let height = $height.value;
   let row, cell;
-  console.log(width, height);
+
   for (let i = 0; i < height; i++) {
     row = $table.insertRow(i);
     for (let j = 0; j < width; j++) {
       row.insertCell(j);
     }
   }
+  tableIsReady();
 });
+
+const tableIsReady = () => {
+  $tableCells = document.querySelectorAll('td');
+  for (let i = 0; i < $tableCells.length; i++) {
+    $tableCells[i].addEventListener('click', e => {
+      e.target.style.backgroundColor = 'red';
+    });
+  }
+};
