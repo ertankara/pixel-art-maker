@@ -23,6 +23,44 @@ window.addEventListener('load', () => {
   $displayHeight.innerHTML = $height.value;
 });
 
+// when table is generated assign event listeners to every cell
+const tableIsReady = () => {
+  $tableCells = document.querySelectorAll('td');
+  for (let i = 0; i < $tableCells.length; i++) {
+    $tableCells[i].addEventListener('click', e => {
+      e.target.style.backgroundColor = 'red';
+    });
+  }
+};
+
+// table generator
+const generateTable = () => {
+  clearTable();
+  let row;
+  for (let i = 0; i < $height.value; i++) {
+    row = $table.insertRow(i);
+    for (let j = 0; j < $width.value; j++) {
+      row.insertCell(j);
+    }
+  }
+  // it means table is existing
+  tableCleared = false;
+  // assign new event listeners for newly created table
+  tableIsReady();
+  // change the message of the button to avoid conflict
+  $submit.value = 'Clear';
+};
+
+// clears table
+const clearTable = () => {
+  while ($table.firstChild) {
+    $table.removeChild($table.firstChild);
+  }
+  tableCleared = true;
+  $submit.value = 'Create';
+  
+};
+
 // show real time change of the width value
 $width.addEventListener('change', e => {
   $displayWidth.innerHTML = e.target.value;
@@ -52,69 +90,16 @@ $hiddenArea.addEventListener('mouseleave', e => {
 // when 'create' button is clicked
 $submit.addEventListener('click', () => {
   if (tableCleared) {
-    $table.style.visibility = 'visible';
     generateTable();
-    // change the text of the button
-    $submit.value = 'Clear';
-    tableCleared = false;
   }
   else {
-    // if table is not cleared away 'create' button calls a clearTable to clear it
-    // changes name of the button to avoid conflict
-    $submit.value = 'Create';
     clearTable();
   }
   // table is ready now event listener can be added
   tableIsReady();
 });
 
-/*
-  if there is no table present then the selector becomes null
-  to prevent it the tableIsReady function will be called inside
-  create button click event
-*/
-const tableIsReady = () => {
-  $tableCells = document.querySelectorAll('td');
-  for (let i = 0; i < $tableCells.length; i++) {
-    $tableCells[i].addEventListener('click', e => {
-      e.target.style.backgroundColor = 'red';
-    });
-  }
-};
-
-const clearTable = () => {
-  while ($table.firstChild) {
-    $table.removeChild($table.firstChild);
-  }
-  tableCleared = true;
-  
-};
-
-
-/**
- * when minus and plus buttons are clicked it will update three things in real time
- * 
- * 1- width of the table
- * 2- height of the table
- * 3- realtime number shown to the user
- * 4- position of range input bar
- */
-
 // when plus or minus icons are clicked
-
-const generateTable = () => {
-  $table.style.visibility = 'visible';
-  clearTable();
-  let row;
-  for (let i = 0; i < $height.value; i++) {
-    row = $table.insertRow(i);
-    for (let j = 0; j < $width.value; j++) {
-      row.insertCell(j);
-    }
-  }
-  tableCleared = false;
-};
-
 
 $increaseWidth.addEventListener('click', () => {
   $width.value = Number($width.value) + 1;
