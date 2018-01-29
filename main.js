@@ -83,13 +83,16 @@ const clearTable = () => {
 // show real time change of the width value
 $width.addEventListener('change', e => {
   $displayWidth.innerHTML = e.target.value;
-  clearTable();
+  if (!tableCleared) {
+    generateTable();
+  }
 });
 
 // show real time change of the height value
 $height.addEventListener('change', e => {
   $displayHeight.innerHTML = e.target.value;
-  clearTable();
+  if (!tableCleared)
+    generateTable();
 });
 
 // when hovering on 'psst'
@@ -122,8 +125,9 @@ $increaseWidth.addEventListener('click', () => {
   $width.value = Number($width.value) + 1;
   $displayWidth.innerHTML = $width.value;
 
-  if ($width.value < 50) {
-    generateTable();
+  if (!tableCleared) {
+    if ($width.value >= 5)
+      generateTable();
   }
 });
 
@@ -131,8 +135,9 @@ $decreaseWidth.addEventListener('click', () => {
   $width.value = Number($width.value) - 1;
   $displayWidth.innerHTML = $width.value;
 
-  if ($width.value >= 5) {
-    generateTable();
+  if (!tableCleared) {
+    if ($width.value >= 5)
+      generateTable();
   }
 });
 
@@ -140,8 +145,10 @@ $increaseHeight.addEventListener('click', () => {
   $height.value = Number($height.value) + 1;
   $displayHeight.innerHTML = $height.value;
   
-  if ($height.value < 50) {
-    generateTable();
+  if (!tableCleared) {
+    if ($height.value < 50)
+      generateTable();
+
   }
 });
 
@@ -149,8 +156,9 @@ $decreaseHeight.addEventListener('click', () => {
   $height.value = Number($height.value) - 1;
   $displayHeight.innerHTML = $height.value;
   
-  if ($height.value >= 5) {
-    generateTable();
+  if (!tableCleared) {
+    if ($height.value >= 5)
+      generateTable();
   }
 });
 
