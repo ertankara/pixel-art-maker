@@ -21,7 +21,7 @@ const $decreaseHeight = document.getElementById('decrease-height');
 // color cell and table background
 const $backgroundColor = document.getElementById('background-color');
 const $foregroundColor = document.getElementById('foreground-color');
-// will be assigned when create button is clicked
+// will be assigned when generateTable is called
 let $tableCells;
 
 // to track if table is cleared or created
@@ -35,17 +35,25 @@ window.addEventListener('load', () => {
 });
 
 // when table is generated assign event listeners to every cell
-const tableIsReady = () => {
+const addEventListenerToCells = () => {
   $tableCells = document.querySelectorAll('td');
   for (let i = 0; i < $tableCells.length; i++) {
     $tableCells[i].addEventListener('click', e => {
-      e.target.style.backgroundColor = 'red';
+      // TODO: Add and Remove colors from cells
     });
   }
 };
 
+// set table and label colors
+$backgroundColor.addEventListener('change', e => {
+  $table.style.backgroundColor = e.target.value;
+  document.querySelector('label[for="cell-color"]').style.color = e.target.value;
+  document.querySelector('label[for="bg-color"]').style.color = e.target.value;
+});
+
 // table generator
 const generateTable = () => {
+  // remove previous table
   clearTable();
   let row;
   for (let i = 0; i < $height.value; i++) {
@@ -57,7 +65,7 @@ const generateTable = () => {
   // it means table is existing
   tableCleared = false;
   // assign new event listeners for newly created table
-  tableIsReady();
+  addEventListenerToCells();
   // change the message of the button to avoid conflict
   $submit.value = 'Clear';
 };
@@ -75,19 +83,19 @@ const clearTable = () => {
 // show real time change of the width value
 $width.addEventListener('change', e => {
   $displayWidth.innerHTML = e.target.value;
-  generateTable();
+  clearTable();
 });
 
 // show real time change of the height value
 $height.addEventListener('change', e => {
   $displayHeight.innerHTML = e.target.value;
-  generateTable();
+  clearTable();
 });
 
 // when hovering on 'psst'
 $hiddenArea.addEventListener('mouseover', () => {
   $hiddenArea.style.bottom = '0px';
-    $expand.style.opacity = '0';
+  $expand.style.opacity = '0';
 });
 
 // when hovering stops
@@ -108,7 +116,7 @@ $submit.addEventListener('click', () => {
   }
 });
 
-// when plus or minus icons are clicked
+/* PLUS AND MINUS ICONS EVENT CLICK EVENTS BEGIN */
 
 $increaseWidth.addEventListener('click', () => {
   $width.value = Number($width.value) + 1;
@@ -145,3 +153,5 @@ $decreaseHeight.addEventListener('click', () => {
     generateTable();
   }
 });
+
+/* PLUS AND MINUS ICONS EVENT CLICK EVENTS END */

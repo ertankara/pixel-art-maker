@@ -8,6 +8,7 @@ body {
   background: rgba(49, 88, 166, 0.8)
 }
 
+/* the hidden area at the top */
 .hidden-input {
   width: 600px;
   height: 155px;
@@ -21,31 +22,37 @@ body {
   -webkit-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   -moz-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
+  z-index: 100;
 }
 
+/* color picker styles and position */
 .pick-colors {
   position: absolute;
   width: 400px;
-  height: 400px;
-  left: auto;
+  left: 42%;
+  top: 5%;
   right: auto;
-  
+  color: rgb(87, 252, 197, 0.8);
 }
 
+/* the range inputs */
 .inputs {
   display: inline-block;
   padding: 15px;
 }
 
+/* labels of the ranges and color pickers */
 .labels {
   font-size: 1.2em;
   font-weight: bold;
 }
 
+/* the real time update of dimensions */
 .realtime {
   font-size: 1.2em;
 }
 
+/* create/clear button */
 .submit-button {
   display: block;
   margin: 0 auto;
@@ -58,18 +65,22 @@ body {
   z-index: 100;
 }
 
+/* pointer cursor style for plus and minus icons */
 .pointy-cursor {
   cursor: pointer;
 }
 
+/* when hovering on create/clear button */
 .submit-button:hover {
   border-style: outset;
 }
 
+/* when create/clear button is clicked */
 .submit-button:active {
   border-style: inset
 }
 
+/* grabs attention to reveal settings */
 .psst {
   background-color: #ff5544;
   text-align: center;
@@ -81,11 +92,12 @@ body {
    
 }
 
+/* the place where table is being created */
 .table-area {
   border: 2px ridge black;
   margin: 0 auto;
   margin-top: 10px;
-  background-color: rgb(67, 232, 177, 0.5);
+  background-color: rgb(87, 252, 197, 0.5);
   -moz-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   -webkit-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
