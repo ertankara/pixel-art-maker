@@ -1,15 +1,26 @@
+// hidden settings area
 const $hiddenArea = document.getElementById('hidden-area');
+// 'psst' to expand settings
 const $expand = document.getElementById('expand');
+// empty table element
 const $table = document.getElementById('create-table');
+// the create and clear button
 const $submit = document.getElementById('submit-button');
+// actual inputs for height and width
 const $width = document.getElementById('input-width');
 const $height = document.getElementById('input-height');
+// realtime visual update of range input values
 const $displayWidth = document.getElementById('realtime-width');
 const $displayHeight = document.getElementById('realtime-height');
+// plus and minus buttons for width
 const $increaseWidth = document.getElementById('increase-width');
 const $decreaseWidth = document.getElementById('decrease-width');
+// plus and minus buttons for height
 const $increaseHeight = document.getElementById('increase-height');
 const $decreaseHeight = document.getElementById('decrease-height');
+// color cell and table background
+const $backgroundColor = document.getElementById('background-color');
+const $foregroundColor = document.getElementById('foreground-color');
 // will be assigned when create button is clicked
 let $tableCells;
 
@@ -74,13 +85,13 @@ $height.addEventListener('change', e => {
 });
 
 // when hovering on 'psst'
-$hiddenArea.addEventListener('mouseover', e => {
+$hiddenArea.addEventListener('mouseover', () => {
   $hiddenArea.style.bottom = '0px';
     $expand.style.opacity = '0';
 });
 
 // when hovering stops
-$hiddenArea.addEventListener('mouseleave', e => {
+$hiddenArea.addEventListener('mouseleave', () => {
   $hiddenArea.style.bottom = '155px';
   setTimeout(() => {
     $expand.style.opacity = '1';
@@ -95,8 +106,6 @@ $submit.addEventListener('click', () => {
   else {
     clearTable();
   }
-  // table is ready now event listener can be added
-  tableIsReady();
 });
 
 // when plus or minus icons are clicked
@@ -122,11 +131,10 @@ $decreaseWidth.addEventListener('click', () => {
 $increaseHeight.addEventListener('click', () => {
   $height.value = Number($height.value) + 1;
   $displayHeight.innerHTML = $height.value;
-
+  
   if ($height.value < 50) {
     generateTable();
   }
-  
 });
 
 $decreaseHeight.addEventListener('click', () => {

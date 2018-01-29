@@ -58,11 +58,7 @@ body {
   z-index: 100;
 }
 
-.fa-plus {
-  cursor: pointer;
-}
-
-.fa-minus {
+.pointy-cursor {
   cursor: pointer;
 }
 
@@ -72,12 +68,6 @@ body {
 
 .submit-button:active {
   border-style: inset
-}
-
-.plus-minus-buttons {
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoRF4FOpE6PbEjpZ6BXtPC1zbB64raTu0_F8QP1uJaDvKPOFkZ) no-repeat;
-
-
 }
 
 .psst {
@@ -95,21 +85,18 @@ body {
   border: 2px ridge black;
   margin: 0 auto;
   margin-top: 10px;
-  /* background-color: #8c77a8; */
   background-color: rgb(67, 232, 177, 0.5);
   -moz-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
-  /* hidden because shadow leaves an annoying dot in middle of the screen */
+  -webkit-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
 
   border-collapse: collapse;
 }
 
 td {
   border: 2px solid black;
-  width: 15px;
-  height: 15px;
-  margin: 0;
-  padding: 0;
+  width: 17px;
+  height: 17px;
 }
 
 

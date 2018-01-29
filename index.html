@@ -8,7 +8,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="pick-colors">Placeholder for color pickers</div>
+  <div class="pick-colors">
+    <label for="cell-color">Cell Color</label>
+    <input id="background-color" type="color" name="cell-color">
+    
+    <label for="bg-color">Table Background Color</label>
+    <input id="foreground-color" type="color" name="bg-color">
+  </div>
     <div id="hidden-area" class="hidden-input">
       <div class="width-input-part inputs">
         
@@ -17,8 +23,8 @@
         <label class="labels" for="name">Width: </label>
         <span class="realtime" id="realtime-width"></span>
       </div>
-      <i id="increase-width" class="fa fa-plus" aria-hidden="true"></i>
-      <i id="decrease-width" class="fa fa-minus" aria-hidden="true"></i>
+      <i id="increase-width" class="fa fa-plus pointy-cursor" aria-hidden="true"></i>
+      <i id="decrease-width" class="fa fa-minus pointy-cursor" aria-hidden="true"></i>
       <div class="height-input-part inputs">
         <input id="input-height" type="range" name="height" max="50" min="5" value="20">
         <br>
@@ -26,8 +32,8 @@
         <span class="realtime" id="realtime-height"></span>
       </div>
       
-        <i id="increase-height" class="fa fa-plus" aria-hidden="true"></i>
-        <i id="decrease-height" class="fa fa-minus" aria-hidden="true"></i>
+        <i id="increase-height" class="fa fa-plus pointy-cursor" aria-hidden="true"></i>
+        <i id="decrease-height" class="fa fa-minus pointy-cursor" aria-hidden="true"></i>
         <input id="submit-button" class="submit-button" type="submit" value="Create">
 
       <div id="expand" class="psst">
