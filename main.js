@@ -21,6 +21,8 @@ const $decreaseHeight = document.getElementById('decrease-height');
 // color cell and table background
 const $backgroundColor = document.getElementById('background-color');
 const $foregroundColor = document.getElementById('foreground-color');
+// eraser button
+const $eraser = document.getElementById('eraser');
 // will be assigned when generateTable is called
 let $tableCells;
 
@@ -32,6 +34,7 @@ let tableCleared = true;
 window.addEventListener('load', () => {
   $displayWidth.innerHTML = $width.value;
   $displayHeight.innerHTML = $height.value;
+  $backgroundColor.value = 'rgb(87, 252, 197, 0.5)';
 });
 
 // when table is generated assign event listeners to every cell
@@ -39,7 +42,15 @@ const addEventListenerToCells = () => {
   $tableCells = document.querySelectorAll('td');
   for (let i = 0; i < $tableCells.length; i++) {
     $tableCells[i].addEventListener('click', e => {
-      // TODO: Add and Remove colors from cells
+      if ($eraser.checked) {
+        console.log('is checked');
+        e.target.style.backgroundColor = $backgroundColor.value;
+      }
+      else {
+        e.target.style.backgroundColor = $foregroundColor.value;
+      }
+      
+
     });
   }
 };
@@ -49,6 +60,11 @@ $backgroundColor.addEventListener('change', e => {
   $table.style.backgroundColor = e.target.value;
   document.querySelector('label[for="cell-color"]').style.color = e.target.value;
   document.querySelector('label[for="bg-color"]').style.color = e.target.value;
+  // radio labels colors
+  let $radioButtons = document.querySelectorAll('label[for="eraser"]');
+  for (let i = 0; i < $radioButtons.length; i++) {
+    $radioButtons[i].style.color = $backgroundColor.value;
+  }
 });
 
 // table generator

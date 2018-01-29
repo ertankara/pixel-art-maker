@@ -88,8 +88,7 @@ body {
   height: 30px;
   margin: 0 auto;
   border: 2px grey outset;
-  transition: opacity 0.5s;
-   
+  transition: opacity 0.5s;  
 }
 
 /* the place where table is being created */
@@ -101,7 +100,6 @@ body {
   -moz-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
   -webkit-box-shadow: 10px 10px 44px -9px rgba(0,0,0,0.76);
-
   border-collapse: collapse;
 }
 
@@ -109,6 +107,7 @@ td {
   border: 2px solid black;
   width: 17px;
   height: 17px;
+  cursor: crosshair;
 }
 
 
