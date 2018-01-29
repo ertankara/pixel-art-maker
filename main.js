@@ -57,6 +57,7 @@ const addEventListenerToCells = () => {
 
 // set table and label colors
 $backgroundColor.addEventListener('change', e => {
+  generateTable();
   $table.style.backgroundColor = e.target.value;
   document.querySelector('label[for="cell-color"]').style.color = e.target.value;
   document.querySelector('label[for="bg-color"]').style.color = e.target.value;
@@ -119,7 +120,7 @@ $hiddenArea.addEventListener('mouseover', () => {
 
 // when hovering stops
 $hiddenArea.addEventListener('mouseleave', () => {
-  $hiddenArea.style.bottom = '155px';
+  $hiddenArea.style.bottom = '148px';
   setTimeout(() => {
     $expand.style.opacity = '1';
   }, 200);
