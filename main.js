@@ -30,10 +30,29 @@ let $tableCells;
 // start value is true because there is no table at the beginning
 let tableCleared = true;
 
+// makes hidden area visible for some time to grab attention
+const expandArea = () => {
+  let intervalTime = 0;
+  let interval = setInterval(() => {
+    if (intervalTime % 2 === 0)
+      $hiddenArea.style.bottom = '0px';
+    else
+      $hiddenArea.style.bottom = '30px';
+
+    if (intervalTime === 2) {
+      clearInterval(interval);
+      $hiddenArea.style.bottom = '148px';
+    }
+    intervalTime++;
+  }, 1500);
+  
+};
+
 // show current values of table-create-values
 window.addEventListener('load', () => {
   $displayWidth.innerHTML = $width.value;
   $displayHeight.innerHTML = $height.value;
+  expandArea();
 });
 
 // when table is generated assign event listeners to every cell
