@@ -34,7 +34,7 @@ let tableCleared = true;
 window.addEventListener('load', () => {
   $displayWidth.innerHTML = $width.value;
   $displayHeight.innerHTML = $height.value;
-  $backgroundColor.value = 'rgb(87, 252, 197, 0.5)';
+  $backgroundColor.value = '#43e8b1';
 });
 
 // when table is generated assign event listeners to every cell
