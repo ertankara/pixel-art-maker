@@ -60,18 +60,15 @@ const addEventListenerToCells = () => {
   let isHolding;
   const $tableCells = document.querySelectorAll('td');
   for (let i = 0; i < $tableCells.length; i++) {
-
-    // click
-    $tableCells[i].addEventListener('click', e => {
-      if (!$eraser.checked)
-        e.target.style.backgroundColor = $foregroundColor.value;
-      else
-        e.target.style.backgroundColor = $backgroundColor.value;
-    });
     // mousedown
     $tableCells[i].addEventListener('mousedown', e => {
       // to cancel drag of default behaviour
       e.preventDefault();
+      if (!$eraser.checked)
+        e.target.style.backgroundColor = $foregroundColor.value;
+      else
+        e.target.style.backgroundColor = $backgroundColor.value;
+      
       isHolding = true;
     });
     
@@ -84,9 +81,9 @@ const addEventListenerToCells = () => {
     $tableCells[i].addEventListener('mouseover', e => {
       if (isHolding) {
         if ($eraser.checked)
-        e.target.style.backgroundColor = $backgroundColor.value;
+          e.target.style.backgroundColor = $backgroundColor.value;
         else
-        e.target.style.backgroundColor = $foregroundColor.value;
+          e.target.style.backgroundColor = $foregroundColor.value;
       }
     });
     
