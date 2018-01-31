@@ -44,7 +44,7 @@ const expandArea = () => {
       $hiddenArea.style.bottom = '148px';
     }
     intervalTime++;
-  }, 1500);
+  }, 500);
   
 };
 
@@ -57,17 +57,39 @@ window.addEventListener('load', () => {
 
 // when table is generated assign event listeners to every cell
 const addEventListenerToCells = () => {
-  $tableCells = document.querySelectorAll('td');
+  let isHolding;
+  const $tableCells = document.querySelectorAll('td');
   for (let i = 0; i < $tableCells.length; i++) {
+
+    // click
     $tableCells[i].addEventListener('click', e => {
-      if ($eraser.checked) {
-        console.log('is checked');
+      if (!$eraser.checked)
+        e.target.style.backgroundColor = $foregroundColor.value;
+      else
         e.target.style.backgroundColor = $backgroundColor.value;
-      }
-      else {
+    });
+    // mousedown
+    $tableCells[i].addEventListener('mousedown', e => {
+      // to cancel drag of default behaviour
+      e.preventDefault();
+      isHolding = true;
+    });
+    
+    // mouseup
+    $tableCells[i].addEventListener('mouseup', e => {
+      isHolding = false;
+    });
+    
+    // hovering on cells with mousedown
+    $tableCells[i].addEventListener('mouseover', e => {
+      if (isHolding) {
+        if ($eraser.checked)
+        e.target.style.backgroundColor = $backgroundColor.value;
+        else
         e.target.style.backgroundColor = $foregroundColor.value;
       }
     });
+    
   }
 };
 
