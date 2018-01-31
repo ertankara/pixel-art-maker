@@ -67,23 +67,16 @@ const addEventListenerToCells = () => {
       else {
         e.target.style.backgroundColor = $foregroundColor.value;
       }
-      
-
     });
   }
 };
 
 // set table and label colors
 $backgroundColor.addEventListener('change', e => {
-  generateTable();
+  if (!tableCleared)
+    generateTable();
+    
   $table.style.backgroundColor = e.target.value;
-  document.querySelector('label[for="cell-color"]').style.color = e.target.value;
-  document.querySelector('label[for="bg-color"]').style.color = e.target.value;
-  // radio labels colors
-  let $radioButtons = document.querySelectorAll('label[for="eraser"]');
-  for (let i = 0; i < $radioButtons.length; i++) {
-    $radioButtons[i].style.color = $backgroundColor.value;
-  }
 });
 
 // table generator
