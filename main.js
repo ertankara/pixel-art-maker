@@ -56,8 +56,8 @@ window.addEventListener('load', () => {
 });
 
 // when table is generated assign event listeners to every cell
+let isHolding;
 const addEventListenerToCells = () => {
-  let isHolding;
   const $tableCells = document.querySelectorAll('td');
   for (let i = 0; i < $tableCells.length; i++) {
     // mousedown
@@ -68,7 +68,7 @@ const addEventListenerToCells = () => {
         e.target.style.backgroundColor = $foregroundColor.value;
       else
         e.target.style.backgroundColor = $backgroundColor.value;
-      
+
       isHolding = true;
     });
     
@@ -89,6 +89,11 @@ const addEventListenerToCells = () => {
     
   }
 };
+
+// if mouse leaves table with a mousedown event it will deactivate coloring
+$table.addEventListener('mouseleave', () => {
+  isHolding = false;
+})
 
 // set table and label colors
 $backgroundColor.addEventListener('change', e => {
